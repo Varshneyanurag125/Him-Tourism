@@ -11,12 +11,17 @@ import {
   MobileNavMenu,
 } from "@/components/ui/resizable-navbar.jsx";
 import { useState } from "react";
+import { IconMap } from "@tabler/icons-react";  
 
 export function NavbarDemo() {
   const navItems = [
     {
+      name: "Home",
+      link: "/",
+    },
+    {
       name: "Destinations",
-      link: "#features",
+      link: "/destinations",
     },
     {
       name: "Things to do",
@@ -31,13 +36,16 @@ export function NavbarDemo() {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
 
   return (
-    <div className="relative w-full">
+    <div className="relative w-full z-50">
       <Navbar>
         {/* Desktop Navigation */}
         <NavBody>
           <NavbarLogo />
           <NavItems items={navItems} />
           <div className="flex items-center justify-center gap-4">
+          <button className="flex items-center justify-center w-8 h-8 text-white rounded-full bg-black/30 hover:bg-black/50 transition-colors" aria-label="Map">
+              <IconMap size={16} />
+            </button>
             <NavbarButton variant="secondary" className=" border-2 border-gray-400 text-white hover:text-white/90 bg-black rounded-full">Login</NavbarButton>
             <NavbarButton variant="primary" className="bg-white text-black hover:text-white/90 hover:bg-black rounded-full">Explore Now</NavbarButton>
           </div>
